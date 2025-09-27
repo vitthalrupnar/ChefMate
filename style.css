@@ -1,0 +1,520 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(235, 236, 236);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------- NAVBAR ---------- */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 10px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  gap: 20px;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 55px;
+}
+
+.chefmate {
+  font-size: 28px;
+  font-weight: 700;
+  color: black;
+  text-decoration: none;
+}
+.chefmate::first-letter {
+  color: red;
+  font-size: 34px;
+}
+
+/* hamburger button */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* center search */
+.search-bar-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-food {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 40px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eee;
+  overflow: hidden;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.search-food:focus-within {
+  box-shadow: 0 10px 28px rgba(255, 102, 0, 0.12);
+  border-color: rgba(255, 102, 0, 0.22);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 18px;
+  font-size: 16px;
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.search-btn {
+  width: 60px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 30px 30px 0;
+  border: none;
+  cursor: pointer;
+  margin-left: 8px;
+  background: linear-gradient(135deg, #ff6600, #ff9900);
+  box-shadow: 0 6px 14px rgba(255, 102, 0, 0.18);
+  color: #fff;
+  font-size: 18px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.search-btn:active {
+  transform: translateY(1px);
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.right-side a {
+  font-size: 18px;
+  text-decoration: none;
+  color: black;
+  transition: color 0.2s;
+}
+.right-side a:hover {
+  color: red;
+}
+
+.cart i {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ---------- Recipes / rest of page ---------- */
+.recipes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  width: 90vw;
+  margin: 2rem auto;
+  cursor: pointer;
+}
+
+.container {
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px gray;
+  border-radius: 10px;
+  background-color: white;
+  transition: 0.3s ease;
+}
+.container:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.descp {
+  padding: 20px;
+  font-weight: 300;
+  font-size: 15px;
+}
+
+.name-review {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.product-name {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: green;
+  border-radius: 5px;
+  font-size: 10px;
+  color: white;
+  font-weight: bold;
+  padding: 2px 5px;
+}
+
+/* Footer */
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+}
+.footer-content h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
+}
+.footer-content p {
+  margin: 0 0 20px;
+  font-size: 16px;
+  color: #ccc;
+}
+.footer-bottom {
+  margin-top: 15px;
+  font-size: 14px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  color: #aaa;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .hamburger {
+    display: block;
+  }
+  .right-side {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    padding: 8px 0;
+    box-sizing: border-box;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 18px;
+  }
+  .left-side {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .search-bar-wrapper {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .search-food {
+    width: 95%;
+  }
+  .right-side {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    width: 40px;
+  }
+  .chefmate {
+    font-size: 20px;
+  }
+  .search-food {
+    width: 100%;
+  }
+  .search-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .search-input {
+    padding: 12px 14px;
+  }
+}
+
+/* Hamburger open state */
+.right-side.open {
+  max-height: 480px;
+}
+
+
+
+
+
+
+
+/* ---------- About Page ---------- */
+.about-hero {
+  background: linear-gradient(135deg, #ff6600, #ff9900);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+.about-hero h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.about-hero p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 20px;
+  gap: 40px;
+}
+
+.about-card {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.about-card img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.about-text h2 {
+  font-size: 28px;
+  color: #ff6600;
+  margin-bottom: 15px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* Features */
+.about-features {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.about-features h2 {
+  font-size: 32px;
+  color: #ff6600;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 25px 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card i {
+  font-size: 36px;
+  color: #ff6600;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-card img {
+    width: 80%;
+  }
+}
+
+
+
+
+
+
+
+/* ---------- Contact Page ---------- */
+.contact-hero {
+  background: linear-gradient(135deg, #ff6600, #ff9900);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 1000px;
+}
+
+.contact-hero h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.contact-hero p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.contact-section {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 20px;
+}
+
+.contact-container {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.contact-form, .contact-info {
+  flex: 1 1 400px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.contact-form h2, .contact-info h2 {
+  font-size: 28px;
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.contact-form button {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #ff6600, #ff9900);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+}
+
+.contact-info p {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.contact-info i {
+  color: #ff6600;
+  margin-right: 10px;
+}
+
+.contact-info .social-icons {
+  margin-top: 15px;
+}
+
+.contact-info .social-icons a {
+  font-size: 24px;
+  color: #333;
+  margin-right: 10px;
+  transition: color 0.2s;
+}
+
+.contact-info .social-icons a:hover {
+  color: #ff6600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+}

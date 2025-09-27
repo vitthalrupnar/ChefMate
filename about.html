@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>About ChefMate</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="left-side">
+        <div class="logo">
+          <img src="./5526265-removebg-preview.png" alt="logo" />
+          <a class="chefmate" href="index.html">ChefMate</a>
+        </div>
+        <button
+          class="hamburger"
+          aria-expanded="false"
+          aria-label="Toggle menu"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+
+      <div class="right-side">
+        <div class="home hover-border-bottom">
+          <a href="index.html">Home</a>
+        </div>
+        <div class="help hover-border-bottom">
+          <a href="./about.html">About</a>
+        </div>
+        <div class="help hover-border-bottom">
+          <a href="./help.html">Help & Support</a>
+        </div>
+        <div class="help hover-border-bottom">
+          <a href="./contact.html">Contact Us</a>
+        </div>
+        <div class="cart hover-border-bottom">
+          <i class="bi bi-bag-dash" onclick="cartPageOpen()"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="hero-content">
+        <h1>Welcome to ChefMate</h1>
+        <p>
+          Your ultimate recipe companion to discover, cook, and share delicious
+          meals from around the world.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-container">
+      <div class="about-card">
+        <img src="./5526265-removebg-preview.png" alt="Cooking" />
+        <div class="about-text">
+          <h2>About ChefMate</h2>
+          <p>
+            ChefMate is designed for food lovers of all levels. From beginners
+            to expert chefs, it helps you explore, search, and share amazing
+            recipes with ease.
+          </p>
+          <p>
+            Find recipes by ingredients, cuisine, or popularity. Save your
+            favorites and create a personal cookbook in one place.
+          </p>
+          <p>
+            Our mission is to make cooking fun, inspiring, and accessible to
+            everyone. Explore new flavors, learn culinary tips, and bring your
+            kitchen to life with ChefMate!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="about-features">
+      <h2>Our Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="bi bi-journal-check"></i>
+          <h3>Easy Recipes</h3>
+          <p>Step-by-step instructions to make cooking effortless.</p>
+        </div>
+        <div class="feature-card">
+          <i class="bi bi-globe"></i>
+          <h3>Global Cuisine</h3>
+          <p>Explore recipes from different countries and cultures.</p>
+        </div>
+        <div class="feature-card">
+          <i class="bi bi-bookmark-heart"></i>
+          <h3>Save Favorites</h3>
+          <p>Keep your favorite recipes saved for quick access anytime.</p>
+        </div>
+        <div class="feature-card">
+          <i class="bi bi-people"></i>
+          <h3>Community Sharing</h3>
+          <p>Share your recipes and connect with fellow cooking enthusiasts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <h3>ChefMate</h3>
+        <p>Discover and share your favorite recipes!</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Recipe World. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+        
+// Hamburger toggle
+const hamburger = document.querySelector('.hamburger');
+const rightSideNav = document.querySelector('.right-side');
+
+if (hamburger && rightSideNav) {
+    const icon = hamburger.querySelector('i');
+
+    hamburger.addEventListener('click', () => {
+        const isOpen = rightSideNav.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        rightSideNav.style.maxHeight = isOpen ? rightSideNav.scrollHeight + 'px' : null;
+
+        if (icon) {
+            if (isOpen) {
+                icon.classList.replace('bi-list', 'bi-x');
+            } else {
+                icon.classList.replace('bi-x', 'bi-list');
+            }
+        }
+    });
+
+    // Reset menu on window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+            rightSideNav.classList.remove('open');
+            rightSideNav.style.maxHeight = null;
+            hamburger.setAttribute('aria-expanded', 'false');
+            if (icon) icon.classList.replace('bi-x', 'bi-list');
+        }
+    });
+}
+    </script>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Containers */
+.viewMoreContainer {
+    width: 80%;
+    margin: auto;
+}
+
+.recepie-img-cart {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    width: 100%;
+    box-shadow: 1px 1px 10px rgb(188, 188, 188);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.recepie-img {
+    flex: 1 1 60%;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+.cart-tags {
+    flex: 1 1 35%;
+    padding: 1rem;
+    line-height: 2rem;
+}
+
+/* Buttons */
+.cart-btn, .back-home {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    margin-top: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-btn {
+    background-color: brown;
+}
+
+.cart-btn:hover {
+    background-color: rgb(33, 138, 33);
+}
+
+.back-home {
+    background-color: black;
+}
+
+.back-home:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+/* Recipe Name & Ratings */
+.recepie-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(24, 85, 24);
+}
+
+.name-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.rating-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.recepie-rating {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    background-color: green;
+    padding: 5px 12px;
+    color: white;
+    border-radius: 5px;
+}
+
+.deliveryRating {
+    border-bottom: 1px dashed black;
+}
+
+/* Sections */
+.view-more-about-recepie {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.view-more-about-recepie div {
+    flex: 1 1 30%;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+h2 {
+    margin-bottom: 1rem;
+    border-bottom: 2px dashed black;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    color: rgb(85, 23, 23);
+}
+
+/* Offer badge */
+.offer {
+    position: absolute;
+    left: 9.6rem;
+    bottom: 19rem;
+    background-color: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.overview{
+    padding: 1rem;
+}
+
+/* ================= Responsive ================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .recepie-img-cart {
+        flex-direction: column;
+    }
+    .recepie-img, .cart-tags {
+        flex: 1 1 100%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .viewMoreContainer {
+        width: 95%;
+    }
+    .recepie-name {
+        font-size: 1.5rem;
+    }
+    .cart-btn, .back-home {
+        font-size: 16px;
+        padding: 12px;
+    }
+    .view-more-about-recepie div {
+        flex: 1 1 100%;
+    }
+    .offer {
+        position: absolute;
+        margin: 1rem 0;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+    .recepie-name {
+        font-size: 1.2rem;
+    }
+    .cart-tags {
+        padding: 0.5rem;
+    }
+    h2 {
+        font-size: 18px;
+    }
+}

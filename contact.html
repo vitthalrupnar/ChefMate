@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Contact ChefMate</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="left-side">
+        <div class="logo">
+          <img src="./5526265-removebg-preview.png" alt="logo" />
+          <a class="chefmate" href="index.html">ChefMate</a>
+        </div>
+        <button
+          class="hamburger"
+          aria-expanded="false"
+          aria-label="Toggle menu"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+
+      <div class="right-side">
+        <div class="home hover-border-bottom">
+          <a href="index.html">Home</a>
+        </div>
+        <div class="help hover-border-bottom">
+          <a href="./about.html">About</a>
+        </div>
+        <div class="help hover-border-bottom">
+          <a href="./help.html">Help & Support</a>
+        </div>
+        <div class="help hover-border-bottom">
+          <a href="./contact.html">Contact Us</a>
+        </div>
+        <div class="cart hover-border-bottom">
+          <i class="bi bi-bag-dash" onclick="cartPageOpen()"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+      <div class="hero-content">
+        <h1>Contact ChefMate</h1>
+        <p>
+          Have questions, suggestions, or want to share feedback? We'd love to
+          hear from you!
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h2>Send Us a Message</h2>
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <input type="text" name="subject" placeholder="Subject" required />
+            <textarea
+              name="message"
+              rows="6"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h2>Contact Information</h2>
+          <p>
+            <i class="bi bi-geo-alt-fill"></i> 193 ChefMate Street, Pune City,
+            India
+          </p>
+          <p><i class="bi bi-envelope-fill"></i> vitthalrupnar004@gmail.com</p>
+          <p><i class="bi bi-telephone-fill"></i> (+91) 7019032763</p>
+          <div class="social-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="https://x.com/vitthalrupnar04"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/vitthalrupnar/"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <h3>ChefMate</h3>
+        <p>Discover and share your favorite recipes!</p>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Recipe World. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Simple form submission alert
+      const form = document.getElementById("contactForm");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Thank you for contacting us! We'll get back to you soon.");
+        form.reset();
+      });
+
+      
+// Hamburger toggle
+const hamburger = document.querySelector('.hamburger');
+const rightSideNav = document.querySelector('.right-side');
+
+if (hamburger && rightSideNav) {
+    const icon = hamburger.querySelector('i');
+
+    hamburger.addEventListener('click', () => {
+        const isOpen = rightSideNav.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        rightSideNav.style.maxHeight = isOpen ? rightSideNav.scrollHeight + 'px' : null;
+
+        if (icon) {
+            if (isOpen) {
+                icon.classList.replace('bi-list', 'bi-x');
+            } else {
+                icon.classList.replace('bi-x', 'bi-list');
+            }
+        }
+    });
+
+    // Reset menu on window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024) {
+            rightSideNav.classList.remove('open');
+            rightSideNav.style.maxHeight = null;
+            hamburger.setAttribute('aria-expanded', 'false');
+            if (icon) icon.classList.replace('bi-x', 'bi-list');
+        }
+    });
+}
+    </script>
+  </body>
+</html>
